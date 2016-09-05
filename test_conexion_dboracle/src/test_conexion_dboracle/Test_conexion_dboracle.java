@@ -26,7 +26,6 @@ public class Test_conexion_dboracle {
 
             Class.forName(JDBC_DRIVER);
             
-            
             PreparedStatement st = conexion.prepareStatement("INSERT INTO PRUEBA_PERSONA VALUES (3, 'SARA')");
             st.executeUpdate();
             st.close();
