@@ -20,31 +20,31 @@ public class Test_conexion_dboracle {
         final String USER = "USUARIO_LAB";
         final String PASS = "root";
 
-        Connection conexion = null;
+        //Connection conexion = null;
 
-        try {
+        try (Connection conexion = DriverManager.getConnection(DB_URL, USER, PASS)){//prueba con try with resources
 
             Class.forName(JDBC_DRIVER);
-            conexion = DriverManager.getConnection(DB_URL, USER, PASS);
             
-            PreparedStatement st = conexion.prepareStatement("INSERT INTO PRUEBA_PERSONA VALUES (2, 'ISABELLA')");
+            
+            PreparedStatement st = conexion.prepareStatement("INSERT INTO PRUEBA_PERSONA VALUES (3, 'SARA')");
             st.executeUpdate();
             st.close();
 
         } catch (Exception e) {
             
             System.out.println(e.getMessage());
-        }finally{
+        }/*finally{
             
             if(conexion != null){
                 
-                if(!conexion.isClosed()){
+                if(!conexion.isClosed()){//cuando se utiliza el try with resources en try el bloque finally esta implicito
                     
                     conexion.close();
                 }
             }
             
-        }
+        }*/
 
     }
 
