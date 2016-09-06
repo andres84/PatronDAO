@@ -26,7 +26,7 @@ public class test2 {
             cn = DriverManager.getConnection(urlDB, usuario, clave);
 
             //crear PreparedStatement para crear un query
-            PreparedStatement ps = cn.prepareStatement("INSERT INTO PRUEBA_PERSONA VALUES(4, 'LILIANA')");
+            PreparedStatement ps = cn.prepareStatement("INSERT INTO PERSONA VALUES (incremento_id_persona.NextVal,'SARA', 'FRAGOZO')");
             //convocar metodo de ejecucion update hecia la bd
             ps.executeUpdate();
             //cerrar conexion
